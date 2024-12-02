@@ -1,16 +1,19 @@
-# This is a sample Python script.
+class Human:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.say_info()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def say_info(self):
+        print(f'Привет, меня зовут {self.name}, мне {self.age}')
 
+    def birthday(self):
+        self.age += 1
+        print('У меня день рождения')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+den = Human('Денис', 22)
+max = Human('Макс', 23)
 
+den.say_info()
+max.say_info()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
