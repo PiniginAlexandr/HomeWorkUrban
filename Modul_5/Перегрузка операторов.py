@@ -11,26 +11,32 @@ class House:
     def __lt__(self, other):
         if isinstance(other, House):
             return self.number_of_floors < other.number_of_floors
+        return False
 
     def __le__(self, other):
         if isinstance(other, House):
             return self.number_of_floors <= other.number_of_floors
+        return False
 
     def __gt__(self, other):
         if isinstance(other, House):
             return self.number_of_floors > other.number_of_floors
+        return False
 
     def __ge__(self, other):
         if isinstance(other, House):
             return self.number_of_floors >= other.number_of_floors
+        return False
 
     def __ne__(self, other):
         if isinstance(other, House):
             return self.number_of_floors != other.number_of_floors
+        return False
 
     def __add__(self, value):
         if isinstance(value, int):
             return House(self.name, self.number_of_floors + value)
+        return False
 
     def __radd__(self, value):
         return self.__add__(value)
@@ -39,6 +45,7 @@ class House:
         if isinstance(value, int):
             self.number_of_floors += value
             return self
+        return False
 
     def __str__(self):
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
@@ -62,3 +69,8 @@ print(h1 >= h2)  # __ge__
 print(h1 < h2)  # __lt__
 print(h1 <= h2)  # __le__
 print(h1 != h2)  # __ne__
+
+
+# В остальных методах сравнения, кроме __eq__ следует тоже по умолчанию выводить False, если условный оператор не прошел.
+# То же самое для методов арифметики начиная с __add__.
+# По умолчанию нужно вернуть тот же самый объект без изменений, если if не прошел.

@@ -1,5 +1,5 @@
 def get_multiplied_digits(number):
-    str_number = str(number)
+    str_number = str(number) #Строка
     first = str_number[0]
     if len(str_number) == 1:
         if str_number == '0':
