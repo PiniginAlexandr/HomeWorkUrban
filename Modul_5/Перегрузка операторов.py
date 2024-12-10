@@ -36,7 +36,7 @@ class House:
     def __add__(self, value):
         if isinstance(value, int):
             return House(self.name, self.number_of_floors + value)
-        return False
+        return self.number_of_floors
 
     def __radd__(self, value):
         return self.__add__(value)
@@ -45,7 +45,7 @@ class House:
         if isinstance(value, int):
             self.number_of_floors += value
             return self
-        return False
+        return self.number_of_floors
 
     def __str__(self):
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
