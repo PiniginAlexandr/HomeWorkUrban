@@ -35,17 +35,14 @@ class House:
 
     def __add__(self, value):
         if isinstance(value, int):
-            return House(self.name, self.number_of_floors + value)
-        return self.number_of_floors
+            self.number_of_floors += value
+        return self
 
     def __radd__(self, value):
         return self.__add__(value)
 
     def __iadd__(self, value):
-        if isinstance(value, int):
-            self.number_of_floors += value
-            return self
-        return self.number_of_floors
+        return self.__add__(value)
 
     def __str__(self):
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
@@ -70,7 +67,3 @@ print(h1 < h2)  # __lt__
 print(h1 <= h2)  # __le__
 print(h1 != h2)  # __ne__
 
-
-# В остальных методах сравнения, кроме __eq__ следует тоже по умолчанию выводить False, если условный оператор не прошел.
-# То же самое для методов арифметики начиная с __add__.
-# По умолчанию нужно вернуть тот же самый объект без изменений, если if не прошел.
