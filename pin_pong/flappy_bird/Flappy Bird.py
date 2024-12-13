@@ -2,13 +2,13 @@ import pygame
 import random
 import sys
 
-#Разрешение экрана
+# Разрешение экрана
 wight = 400
 height = 600
 gravity = 0.25
 jump_strength = - 6
 
-#Создание игровой платформы
+# Создание игровой платформы
 pygame.init()
 screen = pygame.display.set_mode((wight, height))
 pygame.display.set_caption('Flappy Bird')
@@ -44,7 +44,6 @@ class Pipe:
         self.rect = self.image.get_rect(topleft=(wight, random.randint(150, height - 50)))
         self.image = pipe_image_down
         self.rect = self.image.get_rect(topleft=(wight, random.randint(-150, height - 50)))
-
 
     def update(self):
         self.rect.x -= 5  # Скорость движения труб

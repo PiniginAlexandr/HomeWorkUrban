@@ -2,7 +2,7 @@ import pygame
 import random
 
 # Определяем размеры окна и сетки
-WIDTH, HEIGHT = 400, 900 #Или можно поставить своё разрешение
+WIDTH, HEIGHT = 600, 800 #Или можно поставить своё разрешение
 GRID_SIZE = 30
 GRID_WIDTH = WIDTH // GRID_SIZE
 GRID_HEIGHT = HEIGHT // GRID_SIZE
