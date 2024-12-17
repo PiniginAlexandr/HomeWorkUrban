@@ -30,6 +30,9 @@ class Animal:
     def speak(self):
         print(self.sound)
 
+    def danger_degree(self):
+        return self._DEGREE_OF_DANGER
+
 
 class Bird(Animal):
     def __init__(self, speed, live=True, sound=None):
@@ -52,7 +55,12 @@ class PoisonousAnimal(Animal):
 
 
 class Duckbill(AquaticAnimal, Bird, PoisonousAnimal):
-    _DEGREE_OF_DANGER = PoisonousAnimal._DEGREE_OF_DANGER
+    if AquaticAnimal._DEGREE_OF_DANGER > Bird._DEGREE_OF_DANGER:
+        _DEGREE_OF_DANGER = AquaticAnimal._DEGREE_OF_DANGER
+    else:
+        _DEGREE_OF_DANGER = Bird._DEGREE_OF_DANGER
+    if AquaticAnimal._DEGREE_OF_DANGER < PoisonousAnimal._DEGREE_OF_DANGER:
+        _DEGREE_OF_DANGER = PoisonousAnimal._DEGREE_OF_DANGER
 
     def __init__(self, speed):
         super().__init__(speed=speed, sound='Click-click-click')
