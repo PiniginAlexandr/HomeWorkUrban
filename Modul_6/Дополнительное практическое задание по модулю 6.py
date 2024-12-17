@@ -7,7 +7,7 @@ class Figure:
     def __init__(self, __color, *sides):
         self.__color = list(__color)
         self.filled = False
-        if len(sides) == self.sides_count:
+        if len(sides) == self.sides_count and self.__is_valid_sides(*sides) and self.__is_valid_color(*__color):
             self.__sides = list(sides)
         else:
             self.__sides = [1] * self.sides_count
