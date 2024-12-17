@@ -44,18 +44,14 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
 
     def dive_in(self, dz):
-        if self._cords[2] - dz < 0:
-            print("It's too deep, I can't dive :(")
-        else:
-            self._cords[2] -= dz
-            self.speed /= 2
+        self._cords[2] -= abs(dz)
 
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
 
 
-class Duckbill(Bird, AquaticAnimal, PoisonousAnimal):
+class Duckbill(AquaticAnimal, Bird, PoisonousAnimal):
     _DEGREE_OF_DANGER = PoisonousAnimal._DEGREE_OF_DANGER
 
     def __init__(self, speed):
