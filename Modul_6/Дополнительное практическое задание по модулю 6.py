@@ -5,9 +5,12 @@ class Figure:
     sides_count = 0
 
     def __init__(self, __color, *sides):
-        self.__color = list(__color)
+        if self.__is_valid_color(*__color):
+            self.__color = list(__color)
+        else:
+            self.__color = [0, 0, 0]
         self.filled = False
-        if len(sides) == self.sides_count and self.__is_valid_sides(*sides) and self.__is_valid_color(*__color):
+        if len(sides) == self.__is_valid_sides(*sides):
             self.__sides = list(sides)
         else:
             self.__sides = [1] * self.sides_count
