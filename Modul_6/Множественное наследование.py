@@ -47,20 +47,14 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
 
     def dive_in(self, dz):
-        self._cords[2] -= abs(dz)
+        self._cords[2] -= abs(dz) * self.speed // 2
 
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
 
 
-class Duckbill(AquaticAnimal, Bird, PoisonousAnimal):
-    if AquaticAnimal._DEGREE_OF_DANGER > Bird._DEGREE_OF_DANGER:
-        _DEGREE_OF_DANGER = AquaticAnimal._DEGREE_OF_DANGER
-    else:
-        _DEGREE_OF_DANGER = Bird._DEGREE_OF_DANGER
-    if AquaticAnimal._DEGREE_OF_DANGER < PoisonousAnimal._DEGREE_OF_DANGER:
-        _DEGREE_OF_DANGER = PoisonousAnimal._DEGREE_OF_DANGER
+class Duckbill(PoisonousAnimal, AquaticAnimal, Bird):
 
     def __init__(self, speed):
         super().__init__(speed=speed, sound='Click-click-click')
