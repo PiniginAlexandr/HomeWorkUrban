@@ -26,12 +26,20 @@ class Vehicle:
             print(f'Нельзя сменить {self.get_color()} на {new_color}.')
 
 
+
+
 class Sedan(Vehicle):
+
+    def __init__(self, owner, __model, __color, __engine_power, __PASSENGERS_LIMIT=5):
+        super().__init__(owner, __model, __color, __engine_power)
+        self.__PASSENGERS_LIMIT = 5
+
     def print_info(self):
         print(f'Модель: {self.get_model()} '
               f'\nМощность двигателя: {self.get_horsepower()} '
               f'\nЦвет: {self.get_color()} '
-              f'\nВладелец: {self.owner}')
+              f'\nВладелец: {self.owner}'
+              f'\nКоличество мест в Седен: {self.__PASSENGERS_LIMIT}')
 
 
 vehicle1 = Sedan('Fedos', 'Toyota Mark ||', 'blue', 500)
