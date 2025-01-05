@@ -14,3 +14,10 @@ for root, dirs, files in os.walk(directory):
               f'\nРазмер: {file_size} байт;'
               f'\nВремя изменения: {formatted_time};'
               f'\nРодительская дириктория: {parent_dir}.')
+
+# Вывод:
+# Обнаружен файл: Файлы в операционной системе.py;
+# Путь: C:\Users\Shilk\PycharmProjects\HomeWorkUrban\Modul_7\ДЗ(Файлы в операционной системе)\Файлы в операционной системе.py;
+# Размер: 823 байт;
+# Время изменения: 05.01.2025 16:38:39;
+# Родительская дириктория: C:\Users\Shilk\PycharmProjects\HomeWorkUrban\Modul_7\ДЗ(Файлы в операционной системе).
