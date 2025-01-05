@@ -1,10 +1,8 @@
 def add_everything_up(a, b):
     try:
-        if TypeError(a, b):
-            a = str(a)
-            b = str(b)
-            return a + b
-    except:
+        return a + b
+    except TypeError:
+        a, b = str(a), str(b)
         return a + b
 
 
