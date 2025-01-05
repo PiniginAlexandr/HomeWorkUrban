@@ -13,7 +13,7 @@ for root, dirs, files in os.walk(directory):
               f'\nПуть: {file_path};'
               f'\nРазмер: {file_size} байт;'
               f'\nВремя изменения: {formatted_time};'
-              f'\nРодительская дириктория: {parent_dir}.')
+              f'\nРодительская директория: {parent_dir}.')
 
 # Вывод:
 # Обнаружен файл: Файлы в операционной системе.py;
