@@ -8,7 +8,6 @@ def add_everything_up(a, b):
 
 print(add_everything_up(123.456, 'строка'))
 print(add_everything_up('яблоко', 4215))
-# print(add_everything_up(round(123.456, 3), 7))
 result = add_everything_up(123.456, 7)
 result = round(result, 3)
 print(result)
