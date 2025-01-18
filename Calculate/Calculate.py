@@ -1,37 +1,39 @@
 import tkinter
 from tkinter import Button, Entry
 
+"""Создание окна"""
 
-"""
-Создание окна
-"""
 window = tkinter.Tk()
 window.title('Calculate')
 window.geometry('230x280')
 window.configure(bg='black')
 window.resizable(False, False)
-"""
-Переменные для хранения состояния
-"""
+
+"""Переменные для хранения состояния"""
+
 first_number = None
 operation = None
 percent_value = None
-"""
-Контроль ввода
-"""
+
+"""Контроль ввода"""
+
+
 def button_click(value):
     current = result_entry.get()
     result_entry.delete(0, tkinter.END)
     result_entry.insert(0, current + str(value))
+
 
 def set_operation(op):
     global first_number, operation
     first_number = float(result_entry.get())
     operation = op
     result_entry.delete(0, tkinter.END)
-"""
-Работа клавиш
-"""
+
+
+"""Работа клавиш"""
+
+
 def calculate():
     global first_number, operation, percent_value
     if operation == '%':
@@ -65,6 +67,7 @@ def calculate():
     operation = None
     percent_value = None
 
+
 """
 Контроль выравнивания колон и строк
 """
@@ -88,11 +91,13 @@ row = Строка
 padx = ось x <--->
 pady = ось y |(вверх или вниз)
 """
+
+
 def create_button(text, row, column, foreground, colspan=1):
     return Button(window, text=text, width=6, height=2,
                   background='black', font=('Arial', 10), foreground=foreground,
                   bd=0, highlightthickness=0,
-                  command=lambda:button_click(text)
+                  command=lambda: button_click(text)
                   if text not in ['+', '-', '*', '/', '%']
                   else set_operation(text)
                   ).grid(row=row, column=column, columnspan=colspan, padx=1, pady=1)
@@ -103,6 +108,8 @@ def button_func(text, row, column, foreground, colspan=1):
                   background='black', foreground=foreground,
                   bd=0, highlightthickness=0).grid(row=row,
                                                    column=column, columnspan=colspan, padx=1, pady=1)
+
+
 """
 Кнопки управления
 """
@@ -119,25 +126,25 @@ create_button('/', 2, 3, 'orange')
 create_button('*', 3, 3, 'orange')
 create_button('-', 4, 3, 'orange')
 create_button('+', 5, 3, 'orange')
-equals_button = Button(window, text='=', width=6,height=2,
+equals_button = Button(window, text='=', width=6, height=2,
                        background='black', foreground='orange',
                        bd=0, highlightthickness=0,
                        command=calculate)
-equals_button.grid(row=6,column=3,padx=1,pady=1)
+equals_button.grid(row=6, column=3, padx=1, pady=1)
 
 """
 Кнопки чисел
 """
-create_button('7', 3, 0,'white')
-create_button('8', 3, 1,'white')
-create_button('9', 3, 2,'white')
-create_button('4', 4, 0,'white')
-create_button('5', 4, 1,'white')
-create_button('6', 4, 2,'white')
-create_button('1', 5, 0,'white')
-create_button('2', 5, 1,'white')
-create_button('3', 5, 2,'white')
-create_button('0', 6, 1,'white')
-create_button('.', 6, 2,'white')
+create_button('7', 3, 0, 'white')
+create_button('8', 3, 1, 'white')
+create_button('9', 3, 2, 'white')
+create_button('4', 4, 0, 'white')
+create_button('5', 4, 1, 'white')
+create_button('6', 4, 2, 'white')
+create_button('1', 5, 0, 'white')
+create_button('2', 5, 1, 'white')
+create_button('3', 5, 2, 'white')
+create_button('0', 6, 1, 'white')
+create_button('.', 6, 2, 'white')
 
 window.mainloop()
