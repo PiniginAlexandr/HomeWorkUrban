@@ -4,27 +4,25 @@ def personal_sum(numbers):
 
     for i in numbers:
         try:
-            if isinstance(i, (int, float)):
-                result += i
-            else:
-                raise TypeError
+            result += i
         except TypeError:
             print(f'Некорректный тип данных для подсчёта суммы - {i}')
             incorrect_data += 1
 
     return result, incorrect_data
 
+
 def calculate_average(numbers):
-    if not isinstance(numbers, (list, tuple)):
+    try:
+        total_sum, incorrect_count = personal_sum(numbers)
+        average = total_sum / (len(numbers) - incorrect_count)
+
+    except ZeroDivisionError:
+        return 0
+    except TypeError:
         print('В numbers записан некорректный тип данных')
         return None
 
-    total_sum, incorrect_count = personal_sum(numbers)
-
-    try:
-        average = total_sum / (len(numbers) - incorrect_count)
-    except ZeroDivisionError:
-        return 0
     return average
 
 print(f'Результат 1: {calculate_average("1, 2, 3")}')
